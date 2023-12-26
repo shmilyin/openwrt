@@ -11,9 +11,14 @@ ipq807x_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
-	cmiot,ax18)
+	cmiot,ax18|\
+	qihoo,v6|\
+	zn,m2)
 		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3" "eth0"
-        ;;
+		;;
+	linksys,mr7350)
+		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2 eth3" "eth4"
+		;;
 	glinet,gl-ax1800)
 		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3 eth4" "eth0"
 		;;

@@ -30,6 +30,32 @@ define Device/cmiot_ax18
 endef
 TARGET_DEVICES += cmiot_ax18
 
+define Device/qihoo_v6
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := Qihoo 360
+	DEVICE_MODEL := V6
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_DTS_CONFIG := config@cp03-c1
+	DEVICE_PACKAGES := ath11k-wifi-qihoo_v6
+	SOC := ipq6018
+endef
+TARGET_DEVICES += qihoo_v6
+
+define Device/zn_m2
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := ZN
+	DEVICE_MODEL := M2
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_DTS_CONFIG := config@cp03-c1
+	DEVICE_PACKAGES := ipq-wifi-cmiot_ax18 kmod-fs-ext4 mkf2fs f2fsck kmod-fs-f2fs
+	SOC := ipq6018
+endef
+TARGET_DEVICES += zn_m2
+
 define Device/glinet_gl-ax1800
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
